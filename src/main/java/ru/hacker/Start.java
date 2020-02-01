@@ -84,6 +84,21 @@ public class Start {
 
                 //selectData(st);
             }
+            try{
+                DataManipulator dm=new DataManipulator(url_memory, "sa","");
+                EntryDTO rec=new EntryDTO(5,"vasya");
+                dm.insert(rec);
+                System.out.println(dm.getAll());
+                System.out.println(dm.get(5));
+                rec=dm.get(4);
+                rec.setName("Murka");
+                dm.update(rec);
+                System.out.println(dm.getAll());
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
 
 //            String name1 = "Jack";
 //            String q = "insert into TEST(name) values(?)";
